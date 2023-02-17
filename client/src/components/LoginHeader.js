@@ -12,7 +12,7 @@ import axios from 'axios';
 import Logo from '../svg/Logo.svg';
 import { BREAK_POINT_PC, BREAK_POINT_TABLET } from '../constants/index';
 import Hambar from './HamBar';
-const backendUrl = 'http://13.125.30.88/';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const LoginHeader = () => {
   const { isLogin, setisLogin } = memberstore((state) => state);
@@ -31,7 +31,7 @@ const LoginHeader = () => {
   const Logout = async () => {
     const token = localStorage.getItem('accessToken');
     const res = await axios.post(
-      `${backendUrl}auth/logout`,
+      `${API_URL}auth/logout`,
       {},
       {
         headers: { Authorization: token },

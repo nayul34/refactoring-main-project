@@ -11,17 +11,16 @@ const token = localStorage.getItem('accessToken');
 const Comment = ({ boardId, profile }) => {
   const params = useParams();
   const url = 'http://13.125.30.88/comment';
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const [commentData, setCommentData] = useState([]);
   const [contentValue, setContentValue] = useState('');
-
+  console.log(contentValue);
   //추가부분
   const { nickname } = userStore((state) => state);
 
   const onContentChange = (e) => {
     setContentValue(e.currentTarget.value);
   };
-  console.log(contentValue);
   const onPostComment = () => {
     axios(url, {
       method: 'POST',
@@ -46,7 +45,7 @@ const Comment = ({ boardId, profile }) => {
   const fetchCommentData = async () => {
     try {
       const response = await axios.get(
-        url + `/board/${params.boardId}?page=1&size=10`
+        API_URL + `comment/board/${params.boardId}?page=1&size=10`
       );
       setCommentData(response.data);
       console.log(response.data);

@@ -10,7 +10,7 @@ import { persist } from 'zustand';
 import Logo from '../../svg/Logo.svg';
 
 const backendUrl = 'http://13.125.30.88/';
-
+const API_URL = process.env.REACT_APP_API_URL;
 function LoginModal(props) {
   const setUserId = userStore((state) => state.setUserId);
   // 추가부분
@@ -62,7 +62,7 @@ function LoginModal(props) {
   const SignIn = async () => {
     if (validationCheck(id, 'email') && validationCheck(password, 'password'))
       return true;
-    const res = await axios.post(`${backendUrl}auth/login`, {
+    const res = await axios.post(`${API_URL}auth/login`, {
       email: id,
       password: password,
     });
