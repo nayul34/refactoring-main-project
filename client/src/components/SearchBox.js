@@ -29,7 +29,6 @@ const SearchBox = () => {
       try {
         const response = await axios.get(`http://13.125.30.88/boards`);
         setData(response.data.data);
-        console.log(response.data.data);
       } catch {
         window.alert('오류가 발생했습니다.');
       }

@@ -53,7 +53,6 @@ const Chat = () => {
         }
       );
       setChatData(response.data.data);
-      console.log(response.data.data);
     } catch (err) {
       return err;
     }
@@ -70,7 +69,6 @@ const Chat = () => {
         }
       );
       setChatData(response.data.data);
-      console.log(response.data.data);
     } catch (err) {
       return err;
     }

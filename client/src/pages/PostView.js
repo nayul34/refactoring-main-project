@@ -13,7 +13,7 @@ import Item from '../components/Item';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { token, BREAK_POINT_PC, BREAK_POINT_TABLET } from '../constants/index';
+import { BREAK_POINT_PC, BREAK_POINT_TABLET } from '../constants/index';
 
 const PostView = () => {
   const navigate = useNavigate();
@@ -29,10 +29,9 @@ const PostView = () => {
   localStorage.setItem('name', JSON.stringify(name));
   localStorage.setItem('boardId', JSON.stringify(boardId));
   localStorage.setItem('profile', JSON.stringify(profile));
-
+  const token = localStorage.getItem('accessToken');
   //좋아요부분
   const onClickGood = async (id) => {
-    const token = localStorage.getItem('accessToken');
     const res = await axios.post(
       `${API_URL}boards/${id}/like`, // 좋아요 API
       {},
@@ -48,7 +47,6 @@ const PostView = () => {
   };
   useEffect(() => {
     const fetchData = async () => {
-      const token = localStorage.getItem('accessToken');
       try {
         const response = await axios.get(
           API_URL + `boards/` + [params.boardId],
@@ -64,8 +62,7 @@ const PostView = () => {
     };
     fetchData();
   }, []);
-  console.log(isFollowing);
-  console.log(detailData);
+
   const onPostDelete = () => {
     if (window.confirm('삭제 하시겠습니까?')) {
       axios(API_URL + `boards/${params.boardId}`, {
@@ -190,7 +187,7 @@ const PostView = () => {
           <span className="products">착용 제품</span>
           <SBottom>
             <Item />
-            <Comment name={name} boardId={boardId} profile={profile} />
+            <Comment name={name} profile={profile} />
           </SBottom>
         </SContainer>
       </div>

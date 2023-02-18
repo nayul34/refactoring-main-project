@@ -16,9 +16,7 @@ const Profile = () => {
   const API_URL = process.env.REACT_APP_API_URL;
   //추가부분
   const [codiType, setCodiType] = useState('my');
-
   localStorage.setItem('myId', JSON.stringify(userStoreId));
-  console.log(userStoreId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,7 +35,6 @@ const Profile = () => {
   }, []);
 
   const myCodi = useMemo(() => {
-    console.log(userId);
     return codi.filter((codi) => {
       return codi.member?.memberId === Number(userId);
     });
@@ -49,7 +46,6 @@ const Profile = () => {
       return codi.like === true;
     });
   }, [codi, userId]);
-  console.log('likeCodi', likeCodi);
 
   return (
     <>

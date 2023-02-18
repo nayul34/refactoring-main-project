@@ -8,7 +8,7 @@ import axios from 'axios';
 import userStore from '../store/userStore';
 const BREAK_POINT_PC = 1300;
 const token = localStorage.getItem('accessToken');
-const Comment = ({ profile }) => {
+const Comment = () => {
   const params = useParams();
   const API_URL = process.env.REACT_APP_API_URL;
   const [commentData, setCommentData] = useState([]);
@@ -17,7 +17,6 @@ const Comment = ({ profile }) => {
   const Id = params.boardId;
   //추가부분
   const { nickname } = userStore((state) => state);
-
   const onContentChange = (e) => {
     setContentValue(e.currentTarget.value);
   };
@@ -48,7 +47,6 @@ const Comment = ({ profile }) => {
         API_URL + `comment/board/${params.boardId}?page=1&size=10`
       );
       setCommentData(response.data);
-      console.log(response.data);
     } catch (err) {
       return err;
     }
