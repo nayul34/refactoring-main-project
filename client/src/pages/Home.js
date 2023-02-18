@@ -16,9 +16,7 @@ const Home = () => {
       const token = localStorage.getItem('accessToken');
       try {
         if (location.pathname === '/') {
-          const response = await axios.get(API_URL + `boards`, {
-            headers: { Authorization: token },
-          });
+          const response = await axios.get(API_URL + `boards`);
           setData(response.data.data);
         }
       } catch {
