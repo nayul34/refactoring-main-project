@@ -20,7 +20,7 @@ const UserInfo = () => {
   const [profileImg, setProfileImg] = useState('');
   const [isFollowOpen, setIsFollowOpen] = useState(false);
   const [isFollowerOpen, setIsFollowerOpen] = useState(false);
-
+  localStorage.setItem('myprofile', JSON.stringify(profileImg));
   const onFollowClickButton = () => {
     setIsFollowOpen(true);
   };

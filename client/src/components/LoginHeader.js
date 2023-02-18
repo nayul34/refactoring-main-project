@@ -12,7 +12,6 @@ import axios from 'axios';
 import Logo from '../svg/Logo.svg';
 import { BREAK_POINT_PC, BREAK_POINT_TABLET } from '../constants/index';
 import Hambar from './HamBar';
-const API_URL = process.env.REACT_APP_API_URL;
 
 const LoginHeader = () => {
   const { isLogin, setisLogin } = memberstore((state) => state);
@@ -21,6 +20,7 @@ const LoginHeader = () => {
   const { userId, setUserId } = userStore((state) => state);
   const [isBarOpen, setIsBarOpen] = useState(false);
   const myId = JSON.parse(localStorage.getItem('myId'));
+  const API_URL = process.env.REACT_APP_API_URL;
   console.log(myId);
   const onClickButton = () => {
     setIsOpen(true);

@@ -8,13 +8,13 @@ import axios from 'axios';
 import userStore from '../store/userStore';
 const BREAK_POINT_PC = 1300;
 const token = localStorage.getItem('accessToken');
-const Comment = ({ boardId, profile }) => {
+const Comment = ({ profile }) => {
   const params = useParams();
-  const url = 'http://13.125.30.88/comment';
   const API_URL = process.env.REACT_APP_API_URL;
   const [commentData, setCommentData] = useState([]);
   const [contentValue, setContentValue] = useState('');
-  console.log(contentValue);
+  const myprofile = JSON.parse(localStorage.getItem('myprofile'));
+  const Id = params.boardId;
   //추가부분
   const { nickname } = userStore((state) => state);
 
@@ -22,14 +22,14 @@ const Comment = ({ boardId, profile }) => {
     setContentValue(e.currentTarget.value);
   };
   const onPostComment = () => {
-    axios(url, {
+    axios(API_URL + `comment`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: token,
       },
       data: JSON.stringify({
-        boardId: boardId,
+        boardId: Id,
         content: contentValue,
       }),
     })
@@ -52,7 +52,6 @@ const Comment = ({ boardId, profile }) => {
     } catch (err) {
       return err;
     }
-    //데이터 받아오기 가능하면 지우고 response.data로 변경
   };
   useEffect(() => {
     fetchCommentData();
@@ -60,7 +59,7 @@ const Comment = ({ boardId, profile }) => {
 
   const onDelteComment = (id) => {
     if (window.confirm('삭제 하시겠습니까?')) {
-      axios(url + `/${id}`, {
+      axios(API_URL + `comment/${id}`, {
         method: 'delete',
         headers: {
           Authorization: token,
@@ -87,7 +86,7 @@ const Comment = ({ boardId, profile }) => {
     try {
       const token = localStorage.getItem('accessToken');
       await axios.patch(
-        `${url}/${id}`,
+        `${API_URL}comment/${id}`,
         {
           content: revise,
         },
@@ -123,7 +122,7 @@ const Comment = ({ boardId, profile }) => {
       <div className="line"></div>
       <form className="commentWrap">
         <div className="my_avatar">
-          <Avatar image={profile} />
+          <Avatar image={myprofile} />
         </div>
         <div className="user-name"></div>
         <div className="comment-input">
@@ -134,12 +133,7 @@ const Comment = ({ boardId, profile }) => {
             onChange={onContentChange}
           />
 
-          <button
-            disabled={!contentValue}
-            onClick={() => {
-              onPostComment(contentValue);
-            }}
-          >
+          <button disabled={!contentValue} onClick={onPostComment}>
             <HiOutlinePaperAirplane />
           </button>
         </div>
