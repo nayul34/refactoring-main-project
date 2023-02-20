@@ -9,12 +9,15 @@ const Item = () => {
   const navigate = useNavigate();
   const params = useParams();
   const url = 'http://13.125.30.88';
+  const API_URL = process.env.REACT_APP_API_URL;
   const [itemData, setItemData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(url + `/boards/` + [params.boardId]);
+        const response = await axios.get(
+          API_URL + `boards/` + [params.boardId]
+        );
         setItemData(response.data);
       } catch (err) {
         return err;

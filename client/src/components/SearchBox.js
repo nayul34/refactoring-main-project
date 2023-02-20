@@ -8,6 +8,7 @@ const SearchBox = () => {
   const [hasText, setHasText] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState([]);
+  const API_URL = process.env.REACT_APP_API_URL;
   // const [cursor, setCursor] = useState(0);
   // //입력단어
   const onInputChange = (event) => {
@@ -27,7 +28,7 @@ const SearchBox = () => {
     window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://13.125.30.88/boards`);
+        const response = await axios.get(API_URL + `boards`);
         setData(response.data.data);
       } catch {
         window.alert('오류가 발생했습니다.');
