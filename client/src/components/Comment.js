@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import userStore from '../store/userStore';
+
 const BREAK_POINT_PC = 1300;
 const token = localStorage.getItem('accessToken');
 const Comment = () => {
@@ -20,7 +21,9 @@ const Comment = () => {
   const onContentChange = (e) => {
     setContentValue(e.currentTarget.value);
   };
-  const onPostComment = () => {
+
+  const onPostComment = (e) => {
+    e.preventDefault();
     axios(API_URL + `comment`, {
       method: 'POST',
       headers: {
