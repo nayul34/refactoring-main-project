@@ -4,7 +4,7 @@ import Avatar from './Avatar';
 import { BsBookmarkHeart, BsBookmarkHeartFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { BREAK_POINT_TABLET, token } from '../constants/index';
+import { BREAK_POINT_TABLET } from '../constants/index';
 import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL;
 // 게시물 하나에 해당하는 컴포넌트 -게시물 하나에 대한 정보를 나타냄

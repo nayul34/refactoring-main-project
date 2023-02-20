@@ -12,7 +12,6 @@ const Profile = () => {
   const userId = params.userId;
   const userStoreId = userStore((state) => state.userId);
   const [codi, setCodi] = useState([]);
-  const [followData, setFollowData] = useState([]);
   const API_URL = process.env.REACT_APP_API_URL;
   //추가부분
   const [codiType, setCodiType] = useState('my');
