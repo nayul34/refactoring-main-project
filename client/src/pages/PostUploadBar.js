@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Dropdown from '../components/Dropdown';
 import ItemImageInput from '../components/ItemImageInput';
 import PropTypes from 'prop-types';
-import { token, BREAK_POINT_PC, BREAK_POINT_TABLET } from '../constants/index';
 const PostUploadBar = ({ index, onChangeItem }) => {
   const [imgFile, setImgFile] = useState([]); // 이미지 배열
   const [brandname, setBrandname] = useState('');

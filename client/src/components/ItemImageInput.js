@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { BREAK_POINT_PC, BREAK_POINT_TABLET } from '../constants/index';
 
 //postuploadbar.js 에서 받아온 index,imgFile,onUploadImages 함수
 const ItemImageInput = ({

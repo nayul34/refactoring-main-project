@@ -8,7 +8,6 @@ import axios from 'axios';
 const Item = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const url = 'http://13.125.30.88';
   const API_URL = process.env.REACT_APP_API_URL;
   const [itemData, setItemData] = useState([]);
 

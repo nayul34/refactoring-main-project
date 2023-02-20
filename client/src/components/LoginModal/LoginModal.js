@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 import memberstore from '../../store/memberstore';
 import { persist } from 'zustand';
 import Logo from '../../svg/Logo.svg';
-
-const backendUrl = 'http://13.125.30.88/';
 const API_URL = process.env.REACT_APP_API_URL;
 function LoginModal(props) {
   const setUserId = userStore((state) => state.setUserId);
