@@ -5,7 +5,7 @@ import userStore from '../store/userStore';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import { BREAK_POINT_TABLET, token } from '../constants/index';
+import { BREAK_POINT_TABLET } from '../constants/index';
 
 const Profile = () => {
   const params = useParams();
@@ -16,7 +16,7 @@ const Profile = () => {
   //추가부분
   const [codiType, setCodiType] = useState('my');
   localStorage.setItem('myId', JSON.stringify(userStoreId));
-
+  const token = localStorage.getItem('accessToken');
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchData = async () => {

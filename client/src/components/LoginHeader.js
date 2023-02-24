@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import LoginModal from './LoginModal/LoginModal';
+import LoginModal from './LoginModal';
 import { BsPersonCircle, BsPencilSquare } from 'react-icons/bs';
 import { AiOutlineMessage } from 'react-icons/ai';
 import { GoThreeBars } from 'react-icons/go';

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { CloseOutlined, LeftSquareFilled } from '@ant-design/icons';
 import { useState } from 'react';
-import Logo from '../../svg/Logo.svg';
+import Logo from '../svg/Logo.svg';
 
 const API_URL = process.env.REACT_APP_API_URL;
 function Signup(props) {

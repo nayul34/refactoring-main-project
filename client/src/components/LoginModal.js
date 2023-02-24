@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import userStore from '../../store/userStore';
+import userStore from '../store/userStore';
 import { CloseOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import Signup from '../Signup/Signup';
+import Signup from './Signup';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import memberstore from '../../store/memberstore';
+import memberstore from '../store/memberstore';
 import { persist } from 'zustand';
-import Logo from '../../svg/Logo.svg';
+import Logo from '../svg/Logo.svg';
 const API_URL = process.env.REACT_APP_API_URL;
 function LoginModal(props) {
   const setUserId = userStore((state) => state.setUserId);
